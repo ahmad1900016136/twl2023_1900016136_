@@ -2,37 +2,33 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform login logic here
-    // You can send the login data to an API or handle it in any desired way
-    axios.post('/api/login', {
-      email,
-      password
-    })
-      .then(response => {
-        // Store the token in local storage or cookies
-        const { token } = response.data;
-        // Example of storing token in local storage
-        localStorage.setItem('token', token);
-        // Redirect or perform any other actions
+    // Perform Register logic here
+    // You can send the Register data to an API or handle it in any desired way
+    axios.post('http://127.0.0.1:8000/api/register', {
+        email,
+        password
       })
-      .catch(error => {
-        // Handle login error
-      });
-    console.log('Login submitted:', { email, password });
+        .then(response => {
+          // Redirect to login or perform any other actions
+        })
+        .catch(error => {
+          // Handle registration error
+        });
+    console.log('Register submitted:', { email, password });
     // Reset form fields
-    setEmail('');
-    setPassword('');
+    // setEmail('');
+    // setPassword('');
   };
 
   return (
     <div style={styles.container}>
-      <h2 style={styles.title}>Login</h2>
+      <h2 style={styles.title}>Register</h2>
       <form onSubmit={handleSubmit} style={styles.form}>
         <div style={styles.formGroup}>
           <label htmlFor="email" style={styles.label}>Email:</label>
@@ -56,24 +52,23 @@ const LoginForm = () => {
             required
           />
         </div>
-        
-          <p>
-          Tidak punya akun?
-          <Link to="/register" style={styles.register}> 
+        <p>
+          Sudah punya akun?
+          <Link to="/login" style={styles.login}> 
           
-          <span>Register</span>
+          <span>Login</span>
           </Link>
           </p>
         
-          <Link to="/" style={styles.link}>
-        <button style={styles.button}>Login</button>
+          <Link to="/login" style={styles.link}>
+        <button style={styles.button}>Register</button>
         </Link>
       </form>
     </div>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
 
 const styles = {
   container: {
@@ -123,8 +118,7 @@ const styles = {
     border: 'none',
     cursor: 'pointer',
   },
-
-  register: {
+  login: {
     color: "blue",
     textDecoration: 'none',
   },

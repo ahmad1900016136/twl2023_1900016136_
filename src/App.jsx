@@ -27,7 +27,7 @@ export default function App() {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <Link to="/posts" className="nav-link active" aria-current="page">POSTS</Link>
-                </li>
+                </li> 
                 <li className="nav-item">
                   <Link to="/contactku" className="nav-link active" aria-current="page">CONTACT</Link>
                 </li>
@@ -35,7 +35,7 @@ export default function App() {
 
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0" role="search">
               <li className="nav-item">
-                  <Link to="/login" className="btn btn-success" aria-current="page">ADMIN</Link>
+                  <Link to="/login" className="btn btn-success" aria-current="page">LOGIN</Link>
                 </li>
               </ul>
             </div>

@@ -17,6 +17,8 @@ import Contactfrom from '../views/contactku.jsx';
 
 import Login from '../views/login.jsx';
 
+import Register from '../views/register.jsx';
+
 
 
 
@@ -39,6 +41,7 @@ function RoutesIndex() {
             <Route path="/contactku" element={<Contactfrom/>} />
 
             <Route path="/login" element={<Login/>} />
+            <Route path="/register" element={<Register/>} />
 
         </Routes>
     )
